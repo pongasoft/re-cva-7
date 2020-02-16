@@ -1,0 +1,8 @@
+GUI
+Output
+*.plist
+Intermediate-llvm
+temp.txt
+*.pyc
+*.xcuserstate
+.DS_Store

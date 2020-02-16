@@ -1,0 +1,21 @@
+Source: https://developer.reasonstudios.com/agreements/Agreements#_rack_extension_sdk_license_agreement
+
+The Rack Extension SDK, also named “Jukebox SDK”, is provided by Reason Studios Aktiebolag, reg. no. 556546-2206, Hornsbruksgatan 23, SE-117 34 Stockholm, Sweden, ("Reason Studios") and your use thereof is subject to your continued compliance with the terms and conditions included herein.
+
+Reason Studios hereby grants to you a royalty-free license to study, amend and use the Rack Extension SDK in order to (i) develop Rack Extension products for Reason Studios Shop and (ii) develop, publish and distribute user tutorials, manuals, graphical user interfaces, add-ons and other software for use in connection with development of Reason Studios Rack Extension products.
+
+We encourage developers to use the Rack Extension SDK in a collaborative manner for creating user tutorials, add-ons and software which improves our products and our users' experience of our products and services. Therefore, with the exception of Rack Extension products that you would like to distribute via Reason Studios' Shop, you acknowledge and agree that you will grant (and hereby grant) to third parties a royalty-free, sub-licensable and transferrable right to study, use, amend, develop, distribute any results (or parts thereof) from your use, of the Rack Extension SDK. For the avoidance of doubt, the results of any third parties' use, amendment, development and distribution of any results from use, amendments and developments of the Rack Extension SDK is subject to the terms and conditions of this license agreement.
+
+Notwithstanding anything to the contrary in this license agreement, you may not use the Rack Extension SDK (or parts thereof) in conjunction with any open source software, free software or other software that risk creating an obligation to distribute or publish the Developer Kit (including any part thereof) or any software used together with the Rack Extension SDK to any third party.
+
+YOU ACKNOWLEDGE AND AGREE THAT THE RACK EXTENSION SDK IS PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS, WITHOUT ANY REPRESENTATION OR WARRANTY (WHETHER EXPRESS OR IMPLIED), INCLUDING, BUT NOT LIMITED, ANY REPRESENTATIONS OR WARRANTIES CONCERNING AVAILABILITY, NON-INFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE OR MERCHANTABILITY. IN NO EVENT SHALL REASON STUDIOS (INCLUDING ITS EMPLOYEES, AGENTS, CONSULTANTS OR REPRESENTATIVES) BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY WHATSOEVER.
+
+FOR THE AVOIDANCE OF DOUBT, YOU ARE USING THE RACK EXTENSION SDK AT YOUR OWN RISK AND LIABILITY.
+
+With the exception of Rack Extension products distributed via Reason Studios' Shop, this license agreement and the copyright notice included herein must be distributed together with all copies of any results from your use of the Rack Extension SDK.
+
+Reason Studios reserves the right to amend this agreement at any time by providing written notice on www.reasonstudios.com.
+
+This agreement is governed by and construed in accordance with Swedish law. Any dispute, controversy or claim in relation to this agreement shall be finally settled by Swedish courts, with the district court of Stockholm as the court of first instance.
+
+© Reason Studios AB, Version 1, Updated 14 November 2019
