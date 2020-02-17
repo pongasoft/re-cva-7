@@ -3,7 +3,8 @@ CVA-7 - CV Analyzer for Reason
 
 This project contains the full source code for the free rack extension CVA-7 for Reason, the music DAW produced by Reason Studios. Check the [CVA-7](https://pongasoft.com/rack-extensions/CVA7.html) website for more details.
 
-# Notes
+Notes
+-----
 
 * The source code is released following Reason Studios decision to open up the Rack Extension SDK platform allowing for this kind of project to be made publicly available
 
@@ -13,13 +14,14 @@ This project contains the full source code for the free rack extension CVA-7 for
 
 * I am also not including any IDE (XCode or other) related files because of how it ends up being tied to install locations (which could be fixed as well with a CMakefile).
 
-# Requirements
+Requirements
+------------
 
 * This project builds on macOS (10.13.6)
 
 * This project uses RE SDK version 2.2 (location defined in `jukebox.py` and should be changed according to your system). It has **not** been tested with a more recent version of the SDK (I do know for a fact that the options required by `build45.py` have changed since 2.2).
 
-* This projects depends on [pongasoft/re-common](https://github.com/pongasoft/re-common) which needs to be installed locally (location defined in `jukebox.py` to be `../re-common` but can be changed)
+* This projects depends on [pongasoft/re-common@v1.0.0](https://github.com/pongasoft/re-common/tree/v1.0.0) which needs to be installed locally (location defined in `jukebox.py` to be `../re-common` but can be changed)
 
 # Structure
 
@@ -41,7 +43,8 @@ This project contains the full source code for the free rack extension CVA-7 for
 
 * `render2D.sh` calls the `RE2DRender` process properly (with workaround to see the output in the console). This is the step that processes the content of `GUI2D` to produce the necessary graphic files for the rack extension.
 
-# Implementation notes
+Implementation notes
+--------------------
 
 * Because this device uses SDK 2.2, it uses C++11 (but be aware that it is a limited (by the SDK) version of C++11).
 
@@ -53,7 +56,8 @@ This project contains the full source code for the free rack extension CVA-7 for
 
 * The `Device` class represents the entry point and is the class that is the `privateState` in the C-style `JBox_Export_RenderRealtime` api. It contains 2 copies of the `DeviceState` class: one being the state from the previous batch and one the state for the current batch. At the end of the batch, the current state is copied into the previous state. This allow to see if values have changed and respond appropriately. This design inspired the first iteration of the Jamba framework (VST) but with refinement it then led to having the Property (aka Parameters in VST world) themselves hold the previous and current values which I now believe is a better design. I may retrofit this design in a future implementation...
 
-# Building (macOS)
+Building (macOS)
+----------------
 
 * Run `render2D.sh` to generate the images and files necessary for the UI. This step generates a `GUI` folder with the results.
 
@@ -101,7 +105,15 @@ Build finished
 
 * The previous step automatically installs the newly built RE into the default folder for dev REs. You can now start Reason Recon and load the rack extension. Note that it will **not** appear in normal Reason. You need to start Reason Recon.
 
+Release notes
+-------------
 
-# License
+#### 1.0.0 - 2016/11/30
+
+* First release.
+
+
+License
+-------
 
 This project is released under the terms of the [Rack Extension License agreement](RE_License.txt)
