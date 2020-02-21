@@ -21,7 +21,7 @@ Requirements
 
 * This project uses RE SDK version 2.2 (location defined in `jukebox.py` and should be changed according to your system). It has **not** been tested with a more recent version of the SDK (I do know for a fact that the options required by `build45.py` have changed since 2.2).
 
-* This projects depends on [pongasoft/re-common@v1.0.0](https://github.com/pongasoft/re-common/tree/v1.0.0) which needs to be installed locally (location defined in `jukebox.py` to be `../re-common` but can be changed)
+* This projects depends on [pongasoft/re-common@v1.0.1](https://github.com/pongasoft/re-common/tree/v1.0.1) which needs to be installed locally (location defined in `jukebox.py` to be `../re-common` but can be changed)
 
 # Structure
 
@@ -116,4 +116,6 @@ Release notes
 License
 -------
 
-This project is released under the terms of the [Rack Extension License agreement](RE_License.txt)
+- This project is released under the terms of the [Apache 2.0 license](LICENSE.txt)
+
+- This project uses the Rack extension SDK released under the [Rack Extension License agreement](RE_License.txt)
