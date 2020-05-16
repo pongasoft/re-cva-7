@@ -1,4 +1,4 @@
-format_version = "1.0"
+format_version = "2.0"
 
 local maxArraySize = 256
 

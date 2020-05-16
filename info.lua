@@ -13,7 +13,7 @@ short_name = "CVA-7"
 
 product_id = "com.pongasoft.CVA7"
 manufacturer = "pongasoft"
-version_number = "1.0.0f19"
+version_number = "1.0.0"
 device_type = "helper"
 supports_patches = false
 accepts_notes = false
