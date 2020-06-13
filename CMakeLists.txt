@@ -54,13 +54,17 @@ set(RE_CPP_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/src/cpp)
 # Although you could use a file(GLOB ...) pattern, it is NOT recommended as the CMake generation would happen on
 # every single build!
 set(re_sources_cpp
-    ${RE_CPP_SRC_DIR}/CVInSocketMock.cpp
     ${RE_CPP_SRC_DIR}/Device.cpp
     ${RE_CPP_SRC_DIR}/DeviceFactory.cpp
     ${RE_CPP_SRC_DIR}/DeviceState.cpp
     ${RE_CPP_SRC_DIR}/Motherboard.cpp
     ${RE_CPP_SRC_DIR}/ZoomWindow.cpp
    )
+
+# No need to compile CVInSocketMock for jbox build
+set(re_native_sources_cpp
+    ${RE_CPP_SRC_DIR}/CVInSocketMock.cpp
+    )
 
 # Defining where the local GUI2D files live
 set(RE_2D_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/GUI2D)
@@ -111,7 +115,7 @@ add_re_plugin(
     RE_SDK_ROOT ${RE_SDK_ROOT}
     RE_2D_RENDER_ROOT ${RE_2D_RENDER_ROOT}
     BUILD_SOURCES ${re_sources_cpp} ${re-common_BUILD_SOURCES}
-    NATIVE_BUILD_SOURCES ${re-common_NATIVE_BUILD_SOURCES}
+    NATIVE_BUILD_SOURCES ${re_native_sources_cpp} ${re-common_NATIVE_BUILD_SOURCES}
     RENDER_2D_SOURCES ${re_sources_2d}
     INCLUDE_DIRECTORIES ${re-common_INCLUDE_DIRECTORIES}
     COMPILE_OPTIONS -Wall

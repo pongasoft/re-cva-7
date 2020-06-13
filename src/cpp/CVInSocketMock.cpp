@@ -11,7 +11,7 @@ TJBox_Float64 CVInTestData4Steps::getValue() const
   int count = fCount;
 
   if(fCount >= 4 * MAX_ARRAY_SIZE)
-    return MAXFLOAT;
+    return MAX_TJbox_Float64;
 
   if(count < MAX_ARRAY_SIZE)
     return 0;
@@ -40,7 +40,7 @@ void CVInTestData4Steps::afterRenderBatch()
 TJBox_Float64 CVInTestDataFullSweep::getValue() const
 {
   if(fCount >= fSize)
-    return MAXFLOAT;
+    return MAX_TJbox_Float64;
 
   return 2.0 / (fSize - 1) * fCount - 1;
 }
@@ -104,7 +104,7 @@ void CVInTestDataSteps::reset()
 TJBox_Float64 CVInTestDataSteps::getValue() const
 {
   if(fCount >= MAX_ARRAY_SIZE * VALUES_SIZE)
-    return MAXFLOAT;
+    return MAX_TJbox_Float64;
 
   return VALUES[fCount / MAX_ARRAY_SIZE];
 }

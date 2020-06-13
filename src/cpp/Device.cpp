@@ -1,11 +1,12 @@
 #include "Device.h"
+#include <logging/logging.h>
 
 Device::Device(int iSampleRate): CommonDevice(),
                                  fFirstBatch(true),
                                  fPreviousDeviceState(iSampleRate),
                                  fCurrentDeviceState(iSampleRate)
 {
-  JBOX_TRACE("Device()");
+  DLOG_F(INFO, "Device()");
 
 #ifndef  __phdsp__
   JBOX_TRACE("Local 45 XCode Mode!!!");
@@ -65,7 +66,7 @@ bool Device::doRenderBatch(bool propertyStateChange)
     // handle pause/resume
     if(!fCurrentDeviceState.isPaused())
     {
-      if(cvIn1Value != MAXFLOAT)
+      if(cvIn1Value != MAX_TJbox_Float64)
       {
         CVPoint zoomedCVIn1Point(cvIn1Value);
 
