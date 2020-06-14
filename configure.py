@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Copyright (c) 2020 pongasoft
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -20,7 +22,7 @@ import sys
 import platform
 
 parser = argparse.ArgumentParser(allow_abbrev=False,
-                                 usage='configure.py [-h] [-n] [-f] [-p RE_SDK_ROOT] [-r RE_2D_RENDER_ROOT] [-G GENERATOR] [-- <cmake_options>]',
+                                 usage='configure.py [-h] [-n] [-f] [-R] [-p RE_SDK_ROOT] [-r RE_2D_RENDER_ROOT] [-G GENERATOR] [-- <cmake_options>]',
                                  formatter_class=argparse.RawDescriptionHelpFormatter,
                                  epilog='''
 Notes
@@ -31,6 +33,9 @@ Notes
   -G defaults to "Unix Makefiles" on macOS and "Visual Studio 16 2019" / X64 for Windows10
   run 'cmake --help' to get the list of generators supported
   
+  For single-config generators, Debug is used by default and can be changed with -R for Release
+  For multi-config generators, -R is ignored
+   
   To provide extra options to CMake you do it this way
   python3 configure.py -- -Wdev
 
@@ -49,6 +54,7 @@ parser.add_argument("-f", "--force", help="Force a regeneration (delete and recr
 parser.add_argument("-p", "--sdk-path", help="Path to the sdk (optional)", dest="re_sdk_root")
 parser.add_argument("-r", "--render-path", help="Path to RE2DRender (optional)", dest="re_2d_render_root")
 parser.add_argument("-G", "--generator", help="CMake generator (optional)")
+parser.add_argument("-R", "--release", help="Use CMake Release build type (for single-config generators)", action="store_true")
 parser.add_argument('cmake_options', help="Any options for cmake", nargs=argparse.REMAINDER)
 
 args = parser.parse_args()
@@ -57,11 +63,10 @@ args = parser.parse_args()
 this_script_root_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
 
 # RE_SDK_ROOT
-re_sdk_root = [] if not args.re_sdk_root else [f'-DRE_SDK_ROOT:PATH="{args.re_sdk_root}"']
+re_sdk_root = [] if not args.re_sdk_root else [f'-DRE_SDK_ROOT:PATH={args.re_sdk_root}']
 
 # RE_2D_RENDER_ROOT
-re_2d_render_root = [] if not args.re_2d_render_root else [f'-DRE_2D_RENDER_ROOT:PATH="{args.re_2d_render_root}"']
-
+re_2d_render_root = [] if not args.re_2d_render_root else [f'-DRE_2D_RENDER_ROOT:PATH={args.re_2d_render_root}']
 
 # CMake generator
 cmake_generator = ['-G']
@@ -78,21 +83,31 @@ else:
 cmake_options = [] if not args.cmake_options else args.cmake_options[1:]
 
 # CMake build type (for single config generators)
-cmake_build_type = ['-DCMAKE_BUILD_TYPE=Debug']
+cmake_build_type = [f'-DCMAKE_BUILD_TYPE={"Release" if args.release else "Debug"}']
+
+# CMake build directory (a subdirectory to wherever the command is run)
+cmake_build_dir = ['-B', 'build']
 
 # CMake command
-cmake_command = ['cmake', *re_sdk_root, *re_2d_render_root, *cmake_build_type, *cmake_generator, *cmake_options, this_script_root_dir]
+cmake_command = ['cmake',
+                 *cmake_build_dir,
+                 *re_sdk_root, *re_2d_render_root,
+                 *cmake_build_type,
+                 *cmake_generator,
+                 *cmake_options,
+                 this_script_root_dir]
 
 if args.dry_run:
-    print(' '.join(cmake_command))
+    escaped_command = ' '.join([f'"{x}"' for x in cmake_command[1:]])
+    print(f'cmake {escaped_command}')
 else:
     if args.force:
         import shutil
-        shutil.rmtree('build')
+        if os.path.exists('build'):
+            shutil.rmtree('build')
 
     import subprocess
-    os.makedirs('build', exist_ok=True)
-    subprocess.run(cmake_command, cwd='build')
+    subprocess.run(cmake_command)
 
 
 

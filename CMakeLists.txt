@@ -119,4 +119,5 @@ add_re_plugin(
     RENDER_2D_SOURCES ${re_sources_2d}
     INCLUDE_DIRECTORIES ${re-common_INCLUDE_DIRECTORIES}
     COMPILE_OPTIONS -Wall
+    ENABLE_DEBUGGING # turn on JBOX_TRACE and loguru
 )
