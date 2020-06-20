@@ -36,16 +36,16 @@ endif()
 # Location of RE2DRender (can be set similarly to RE_SDK_ROOT)
 set(RE_2D_RENDER_ROOT "${RE_SDK_ROOT}/../RE2DRender" CACHE PATH "Location of RE2DRender")
 
-# set(RE_CMAKE_ROOT_DIR "")
-#set(RE_CMAKE_ROOT_DIR "../../pongasoft/re-cmake")
-set(RE_CMAKE_ROOT_DIR "/Volumes/Development/local/re-test-plugin/pongasoft/re-cmake")
-
 # If RE_CMAKE_ROOT_DIR is undefined/empty, it will fetch/download it from github
 # If RE_CMAKE_ROOT_DIR is defined, it should point to the (local) folder where re-cmake is located
+set(RE_CMAKE_ROOT_DIR "")
+#set(RE_CMAKE_ROOT_DIR "../../pongasoft/re-cmake")
 include(cmake/re-cmake.cmake)
 
 # Including re-common
-include(../../pongasoft/re-common/re-common.cmake)
+set(RE_COMMON_ROOT_DIR "")
+#set(RE_COMMON_ROOT_DIR "../../pongasoft/re-common")
+include(cmake/re-common.cmake)
 
 # Defining where the sources of the plugin live
 set(RE_CPP_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/src/cpp)

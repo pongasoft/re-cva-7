@@ -18,44 +18,44 @@ cmake_minimum_required(VERSION 3.13)
 
 include(FetchContent)
 
-if(RE_CMAKE_ROOT_DIR)
+if(RE_COMMON_ROOT_DIR)
   # instructs FetchContent to not download or update but use the location instead
-  set(FETCHCONTENT_SOURCE_DIR_RE-CMAKE ${RE_CMAKE_ROOT_DIR})
+  set(FETCHCONTENT_SOURCE_DIR_RE-COMMON ${RE_COMMON_ROOT_DIR})
 else()
-  set(FETCHCONTENT_SOURCE_DIR_RE-CMAKE "")
+  set(FETCHCONTENT_SOURCE_DIR_RE-COMMON "")
 endif()
 
-set(RE_CMAKE_GIT_REPO "https://github.com/pongasoft/re-cmake")
-set(RE_CMAKE_GIT_TAG "v1.0.0")
+set(RE_COMMON_GIT_REPO "https://github.com/pongasoft/re-common")
+set(RE_COMMON_GIT_TAG "v2.0.0")
 
-FetchContent_Declare(re-cmake
-      GIT_REPOSITORY    ${RE_CMAKE_GIT_REPO}
-      GIT_TAG           ${RE_CMAKE_GIT_TAG}
+FetchContent_Declare(re-common
+      GIT_REPOSITORY    ${RE_COMMON_GIT_REPO}
+      GIT_TAG           ${RE_COMMON_GIT_TAG}
       GIT_CONFIG        advice.detachedHead=false
       GIT_SHALLOW       true
-      SOURCE_DIR        "${CMAKE_CURRENT_BINARY_DIR}/re-cmake"
-      BINARY_DIR        "${CMAKE_CURRENT_BINARY_DIR}/re-cmake-build"
+      SOURCE_DIR        "${CMAKE_CURRENT_BINARY_DIR}/re-common"
+      BINARY_DIR        "${CMAKE_CURRENT_BINARY_DIR}/re-common-build"
       CONFIGURE_COMMAND ""
       BUILD_COMMAND     ""
       INSTALL_COMMAND   ""
       TEST_COMMAND      ""
       )
 
-FetchContent_GetProperties(re-cmake)
+FetchContent_GetProperties(re-common)
 
-if(NOT re-cmake_POPULATED)
+if(NOT re-common_POPULATED)
 
-  if(FETCHCONTENT_SOURCE_DIR_RE-CMAKE)
-    message(STATUS "Using re-cmake from local ${FETCHCONTENT_SOURCE_DIR_RE-CMAKE}")
+  if(FETCHCONTENT_SOURCE_DIR_RE-COMMON)
+    message(STATUS "Using re-common from local ${FETCHCONTENT_SOURCE_DIR_RE-COMMON}")
   else()
-    message(STATUS "Fetching re-cmake ${RE_CMAKE_GIT_REPO}@${RE_CMAKE_GIT_TAG}")
+    message(STATUS "Fetching re-common ${RE_COMMON_GIT_REPO}@${RE_COMMON_GIT_TAG}")
   endif()
 
-  FetchContent_Populate(re-cmake)
+  FetchContent_Populate(re-common)
 
 endif()
 
-set(RE_CMAKE_ROOT_DIR ${re-cmake_SOURCE_DIR})
+set(RE_COMMON_ROOT_DIR ${re-common_SOURCE_DIR})
 
 # finally we include the framework itself
-include(${RE_CMAKE_ROOT_DIR}/sdk.cmake)
+include(${RE_COMMON_ROOT_DIR}/re-common.cmake)
