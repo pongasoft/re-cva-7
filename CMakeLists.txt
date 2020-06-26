@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 # Setting up project (note that the version is defined in lua.info)
-project(CVA-7 LANGUAGES CXX)
+project(re-cva-7 LANGUAGES CXX)
 
 # Using C++17
 set(CMAKE_CXX_STANDARD 17)

@@ -24,7 +24,7 @@ This project contains the full source code for the free rack extension CVA-7 for
 * `Design` contains the Pixelmator files used to create the graphics
 * `GUI2D` is a standard RE SDK folder which contains the images (png format) as well as `device_2D.lua` and `hdgui_2D.lua` files which defines the UI
 * `Resources` is a standard RE SDK folder which contains the strings (English only) displayed in the UI
-* `src/cpp` contains the C++11 source code for the device
+* `src/cpp` contains the C++ source code for the device
 * `info.lua`, `motherboard_def.lua` and `realtime_controller.lua` are standard RE SDK files for defining the device
 * `display.lua` is the standard SDK file which contains the lua code for the UI (various custom displays)
 * `configure.py` is the python script you use to configure the CMake build
@@ -72,7 +72,7 @@ After running the configure script, simply go into the newly generated `build` f
 
 #### Step 3 - Try the plugin
 
-You can then open Recon and load the newly built `CVA-7` rack extension.
+You can then open Recon and load the newly built `CVA-7` rack extension (you will find it under `Utilities | pongasoft | CVA-7 CV Analyzer`)
 
 > #### Info
 > The plugin will **only** appear in Recon **not** Reason 
