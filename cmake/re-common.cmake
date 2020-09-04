@@ -25,8 +25,8 @@ else()
   set(FETCHCONTENT_SOURCE_DIR_RE-COMMON "")
 endif()
 
-set(RE_COMMON_GIT_REPO "https://github.com/pongasoft/re-common")
-set(RE_COMMON_GIT_TAG "v2.0.0")
+set(RE_COMMON_GIT_REPO "https://github.com/pongasoft/re-common" CACHE STRING "re-common git repository url")
+set(RE_COMMON_GIT_TAG "v2.0.0" CACHE STRING "re-common git tag")
 
 FetchContent_Declare(re-common
       GIT_REPOSITORY    ${RE_COMMON_GIT_REPO}
@@ -48,7 +48,7 @@ if(NOT re-common_POPULATED)
   if(FETCHCONTENT_SOURCE_DIR_RE-COMMON)
     message(STATUS "Using re-common from local ${FETCHCONTENT_SOURCE_DIR_RE-COMMON}")
   else()
-    message(STATUS "Fetching re-common ${RE_COMMON_GIT_REPO}@${RE_COMMON_GIT_TAG}")
+    message(STATUS "Fetching re-common ${RE_COMMON_GIT_REPO}/tree/${RE_COMMON_GIT_TAG}")
   endif()
 
   FetchContent_Populate(re-common)

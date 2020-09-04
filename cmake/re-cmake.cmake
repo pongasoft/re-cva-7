@@ -25,8 +25,8 @@ else()
   set(FETCHCONTENT_SOURCE_DIR_RE-CMAKE "")
 endif()
 
-set(RE_CMAKE_GIT_REPO "https://github.com/pongasoft/re-cmake")
-set(RE_CMAKE_GIT_TAG "v1.0.0")
+set(RE_CMAKE_GIT_REPO "https://github.com/pongasoft/re-cmake" CACHE STRING "re-cmake git repository url")
+set(RE_CMAKE_GIT_TAG "v1.0.1" CACHE STRING "re-cmake git tag")
 
 FetchContent_Declare(re-cmake
       GIT_REPOSITORY    ${RE_CMAKE_GIT_REPO}
@@ -48,7 +48,7 @@ if(NOT re-cmake_POPULATED)
   if(FETCHCONTENT_SOURCE_DIR_RE-CMAKE)
     message(STATUS "Using re-cmake from local ${FETCHCONTENT_SOURCE_DIR_RE-CMAKE}")
   else()
-    message(STATUS "Fetching re-cmake ${RE_CMAKE_GIT_REPO}@${RE_CMAKE_GIT_TAG}")
+    message(STATUS "Fetching re-cmake ${RE_CMAKE_GIT_REPO}/tree/${RE_CMAKE_GIT_TAG}")
   endif()
 
   FetchContent_Populate(re-cmake)
