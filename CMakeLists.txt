@@ -81,6 +81,7 @@ set(re_sources_2d
     # Images for the device
     ${RE_2D_SRC_DIR}/Button_mini_translucent_2frames.png
     ${RE_2D_SRC_DIR}/Button_mini_translucent_4frames.png
+    ${RE_2D_SRC_DIR}/Cable_Attachment_CV_01_1frames.png
     ${RE_2D_SRC_DIR}/Display_CV_Note_Landscape.png
     ${RE_2D_SRC_DIR}/Display_CV_Note_Landscape_Background.png
     ${RE_2D_SRC_DIR}/Display_CV_Note_Portrait.png
@@ -101,9 +102,8 @@ set(re_sources_2d
     ${RE_2D_SRC_DIR}/Panel_Folded_Front.png
     ${RE_2D_SRC_DIR}/Panel_Front.png
     ${RE_2D_SRC_DIR}/Placeholder.png
-    ${RE_2D_SRC_DIR}/SharedCVJack.png
-    ${RE_2D_SRC_DIR}/TapeHoriz.png
-    ${RE_2D_SRC_DIR}/TapeVert.png
+    ${RE_2D_SRC_DIR}/Tape_Horizontal_1frames.png
+    ${RE_2D_SRC_DIR}/Tape_Vertical_1frames.png
     ${RE_2D_SRC_DIR}/Toggle_Fader_3frames.png
     ${RE_2D_SRC_DIR}/Toggle_Fader_4frames.png
     ${RE_2D_SRC_DIR}/TrimKnob.png

@@ -8,7 +8,7 @@ front = {
 
   TapeFront = {
     offset = { 52, 147 },
-    { path = "TapeVert" },
+    { path = "Tape_Vertical_1frames" },
   },
 
   -- Main LCD
@@ -115,7 +115,7 @@ back = {
 
   TapeBack = {
     offset = { 270, 275 },
-    { path = "TapeHoriz" },
+    { path = "Tape_Horizontal_1frames" },
   },
 
   Placeholder = {
@@ -125,7 +125,7 @@ back = {
 
   CVIn1 = {
     offset = { 1085, 270},
-    { path = "SharedCVJack", frames = 3 }
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
   CVIn1TrimKnob = {
@@ -134,8 +134,8 @@ back = {
   },
 
   CVOut1 = {
-    offset = { 1425, 270},
-    { path = "SharedCVJack", frames = 3 }
+    offset = { 1425, 265},
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
   CVOut1Type = {
@@ -144,8 +144,8 @@ back = {
   },
 
   CVOut2 = {
-    offset = { 1535, 270},
-    { path = "SharedCVJack", frames = 3 }
+    offset = { 1535, 265},
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
   CVOut2Type = {
@@ -154,8 +154,8 @@ back = {
   },
 
   CVOut3 = {
-    offset = { 1645, 270},
-    { path = "SharedCVJack", frames = 3 }
+    offset = { 1645, 265},
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
   CVOut3Type = {
@@ -164,8 +164,8 @@ back = {
   },
 
   CVOut4 = {
-    offset = { 1755, 270},
-    { path = "SharedCVJack", frames = 3 }
+    offset = { 1755, 265},
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
   CVOut4Type = {
@@ -175,18 +175,18 @@ back = {
 
 
   CVOutValue1 = {
-    offset = { 2460, 270},
-    { path = "SharedCVJack", frames = 3 }
+    offset = { 2460, 265},
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
   CVOutMaxValue1 = {
     offset = { 2460, 380},
-    { path = "SharedCVJack", frames = 3 }
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
   CVOutMinValue1 = {
     offset = { 2460, 495},
-    { path = "SharedCVJack", frames = 3 }
+    { path = "Cable_Attachment_CV_01_1frames" }
   },
 
 }
@@ -199,7 +199,7 @@ folded_front = {
 
   TapeFoldedFront = {
     offset = { 440, 40 },
-    { path = "TapeHoriz" },
+    { path = "Tape_Horizontal_1frames" },
   },
 
   -- momentary button to reset min/max values
@@ -252,7 +252,7 @@ folded_back = {
   },
   TapeFoldedBack = {
     offset = { 440, 40 },
-    { path = "TapeHoriz" },
+    { path = "Tape_Horizontal_1frames" },
   },
 
   CableOrigin = {
