@@ -16,31 +16,27 @@
 
 cmake_minimum_required(VERSION 3.13)
 
+# Using RE SDK version 4.2.0
+set(RE_SDK_VERSION 4.2.0)
+
+set(RE_CMAKE_ROOT_DIR "")
+#set(RE_CMAKE_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}/../../pongasoft/re-cmake")
+
+# If RE_CMAKE_ROOT_DIR is undefined/empty, it will fetch/download it from github
+# If RE_CMAKE_ROOT_DIR is defined, it should point to the (local) folder where re-cmake is located
+include(cmake/fetch_re-cmake.cmake)
+
+# Default options provided by re-cmake
+include("${RE_CMAKE_ROOT_DIR}/cmake/RECMakeOptions.cmake")
+
 # Setting up project (note that the version is defined in lua.info)
 project(re-cva-7 LANGUAGES CXX)
 
 # Using C++17
 set(CMAKE_CXX_STANDARD 17)
 
-# Using RE SDK version 4.2.0
-set(RE_SDK_VERSION 4.2.0)
-
-# Location of RE SDK: can be set when invoking cmake => cmake -D "RE_SDK_ROOT:PATH=/path/to/re_sdk"
-# or via -p option in configure.py script or in cmake-gui
-if(APPLE)
-  set(RE_SDK_ROOT "/Users/Shared/ReasonStudios/JukeboxSDK_${RE_SDK_VERSION}/SDK" CACHE PATH "Location of RE SDK")
-else()
-  set(RE_SDK_ROOT "C:/Users/Public/Documents/ReasonStudios/JukeboxSDK_${RE_SDK_VERSION}/SDK" CACHE PATH "Location of RE SDK")
-endif()
-
-# Location of RE2DRender (can be set similarly to RE_SDK_ROOT)
-set(RE_2D_RENDER_ROOT "${RE_SDK_ROOT}/../RE2DRender" CACHE PATH "Location of RE2DRender")
-
-# If RE_CMAKE_ROOT_DIR is undefined/empty, it will fetch/download it from github
-# If RE_CMAKE_ROOT_DIR is defined, it should point to the (local) folder where re-cmake is located
-set(RE_CMAKE_ROOT_DIR "")
-#set(RE_CMAKE_ROOT_DIR "../../pongasoft/re-cmake")
-include(cmake/re-cmake.cmake)
+# we include the framework itself
+include("${RE_CMAKE_ROOT_DIR}/sdk.cmake")
 
 # Including re-common
 set(RE_COMMON_ROOT_DIR "")
@@ -48,7 +44,7 @@ set(RE_COMMON_ROOT_DIR "")
 include(cmake/re-common.cmake)
 
 # Defining where the sources of the plugin live
-set(RE_CPP_SRC_DIR ${CMAKE_CURRENT_LIST_DIR}/src/cpp)
+set(RE_CPP_SRC_DIR "${CMAKE_CURRENT_LIST_DIR}/src/cpp")
 
 # Defining all the source files for the project
 # Although you could use a file(GLOB ...) pattern, it is NOT recommended as the CMake generation would happen on
