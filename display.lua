@@ -107,34 +107,7 @@ end
 function drawPoints(points, color)
   if #points > 0 then
     if #points >= 2 then
---      jbox_display.draw_lines(points, color, "open")
---[[
-      local previousPoint
-      for k, point in pairs(points) do
-        if k > 1 then
-          local vertices = {
-            {x = previousPoint.x, y = previousPoint.yMin},
-            {x = previousPoint.x, y = previousPoint.yMax},
-            {x = point.x, y = point.yMin},
-            {x = point.x, y = point.yMax},
-          }
-          jbox_display.draw_polygon(vertices, color)
-        end
-        previousPoint = point
-      end
-]]
-      local vertices = {}
-      for k, point in pairs(points) do
-        vertices[#vertices + 1] = {x = point.x, y = point.yMax}
-      end
-
-      for k = #points, 1, -1 do
-        local point = points[k]
-        vertices[#vertices + 1] = {x = point.x, y = point.yMin}
-      end
-
-      jbox_display.draw_polygon(vertices, color)
-
+      jbox_display.draw_lines(points, color, "open")
     else
       jbox_display.draw_line(points[1], points[1], color)
     end
@@ -205,8 +178,8 @@ local zeroAxisColor = whiteColor60
 local point5AxisColor = whiteColor40
 local minusPoint5AxisColor = whiteColor40
 
-local displayNegativeClipping = 110
-local displayPositiveClipping = 120
+local displayNegativeClipping = 200
+local displayPositiveClipping = 300
 
 ------------------
 -- MainLCDDraw
@@ -254,23 +227,20 @@ MainLCDDraw = function(props, di, dr)
 
       local pointType = 0
 
-      local max = math.floor(cv / 256)
-      local min = cv - max * 256
+      if cv == displayNegativeClipping or cv == displayPositiveClipping then
+        pointType = cv
+        cv = cv - 200
+        clipping = true
+      end
 
---      if cv == displayNegativeClipping or cv == displayPositiveClipping then
---        pointType = cv
---        cv = cv - 200
---        clipping = true
---      end
-
-      local topAvg = mainLCDHeight - 1 - cv -- we start at 1
+      local top = mainLCDHeight - 1 - cv -- we start at 1
 
       -- record the value for the input page offset (for pause mode)
       if left == inputPageOffset then
-        inputPageOffsetTop = topAvg
+        inputPageOffsetTop = top
       end
 
-      points[#points + 1] = {x = left + 0.5, yAvg = topAvg + 0.5, yMin = mainLCDHeight - 0.5 - min, yMax = mainLCDHeight - 0.5 - max, t = pointType }
+      points[#points + 1] = {x = left + 0.5, y = top + 0.5, t = pointType }
 
       left = left + 1
       size = size - 1

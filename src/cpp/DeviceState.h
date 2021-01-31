@@ -187,32 +187,13 @@ public:
     if(equals5DP(iRawValue, 1.0))
       iRawValue = 1.0;
 
-    // TODO removing clipping for now...
-    if(iRawValue < -1.0)
-      iRawValue = -1.0;
-
-    if(iRawValue > 1.0)
-      iRawValue = 1.0;
-
-    /*
     if(iRawValue < -1.0)
       return DISPLAY_NEGATIVE_CLIPPING;
 
     if(iRawValue > 1.0)
       return DISPLAY_POSITIVE_CLIPPING;
-    */
 
     return static_cast<TJBox_Int32>(round((iRawValue + 1.0) / 2.0 * MAX_DISPLAY_H));
-  }
-
-  inline TJBox_Int32 toDisplayValue(CVPoint const &iPoint)
-  {
-    auto avg = toDisplayValue(iPoint.fAvg);
-    auto min = iPoint.fMin == iPoint.fAvg ? avg : toDisplayValue(iPoint.fMin);
-    auto max = iPoint.fMax == iPoint.fAvg ? avg : toDisplayValue(iPoint.fMax);
-
-    return min | max << 8;
-    //return avg | min << 8 | max << 16;
   }
 
   inline bool storeCVIn1State()

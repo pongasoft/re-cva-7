@@ -95,6 +95,7 @@ Release notes
 * Upgraded to use [re-cmake](https://github.com/pongasoft/re-cmake) (removed all unnecessary files  and added CMake build files) 
 * Upgraded to use RE SDK 4.2.0 (fix for filmstrip images not being multiple of 5)
 * Builds properly on Apple chipset
+* Fixed old code taken from a wip branch (display was broken)
 
 #### 1.0.0 - 2016/11/30
 

@@ -204,7 +204,7 @@ void DeviceState::update(const DeviceState &rhs)
 
 bool DeviceState::zoomValue(int iIdx, CVPoint const &iValue)
 {
-  fPendingUpdates.setPendingValue(iIdx, toDisplayValue(iValue));
+  fPendingUpdates.setPendingValue(iIdx, toDisplayValue(iValue.fAvg));
   return false;
 }
 

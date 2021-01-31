@@ -82,7 +82,7 @@ bool Device::doRenderBatch(bool propertyStateChange)
         {
           propertyStateChange |= storeCVIn1Value(motherboard, zoomedCVIn1Point);
 
-          TJBox_Int32 cvIn1Display = fCurrentDeviceState.toDisplayValue(zoomedCVIn1Point);
+          TJBox_Int32 cvIn1Display = fCurrentDeviceState.toDisplayValue(zoomedCVIn1Point.fAvg);
           if(!fCurrentDeviceState.isScreenOff() && fCurrentDeviceState.shouldUpdateArrayStart(cvIn1Display))
           {
 
