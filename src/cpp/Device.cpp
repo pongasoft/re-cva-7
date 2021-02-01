@@ -58,10 +58,8 @@ bool Device::doRenderBatch(bool propertyStateChange)
     TJBox_Float64 const cvIn1Value = motherboard.fCVIn1.getValue();
 
     // simply copy to out if necessary
-    fCurrentDeviceState.setCVOut(motherboard.fCVOut1, cvIn1Value);
-    fCurrentDeviceState.setCVOut(motherboard.fCVOut2, cvIn1Value);
-    fCurrentDeviceState.setCVOut(motherboard.fCVOut3, cvIn1Value);
-    fCurrentDeviceState.setCVOut(motherboard.fCVOut4, cvIn1Value);
+    for(int i = 0; i < MAX_CV_OUT; i++)
+      fCurrentDeviceState.setCVOut(*motherboard.fCVOut[i], cvIn1Value);
 
     // handle pause/resume
     if(!fCurrentDeviceState.isPaused())

@@ -11,6 +11,7 @@
 #include "JBoxProperty.h"
 #include "CVSocket.h"
 #include "ProjectConstants.h"
+#include "jbox.h"
 
 #ifndef  __phdsp__
 #include "CVInSocketMock.h"
@@ -45,7 +46,7 @@ public:
 
   inline void registerForUpdate(IJBoxPropertyManager &manager, TJBox_Tag iTag) { fPropCVIn1MinMaxAutoReset.registerForUpdate(manager, iTag); }
 
-  virtual void onPropertyUpdated(const TJBox_Int32 &previousValue, const TJBox_Int32 &newValue) override;
+  void onPropertyUpdated(const TJBox_Int32 &previousValue, const TJBox_Int32 &newValue) override;
 
 
 public:
@@ -59,7 +60,10 @@ private:
 class CVOut
 {
 public:
-  CVOut(char const *iSocketPath, char const *iCVOutTypePath) : fCVOutSocket(iSocketPath), fPropCVOutType(iCVOutTypePath) {}
+  explicit CVOut(int iIndex) :
+    fCVOutSocket{jbox::PropertyName::printf("cv_out_%d", iIndex)},
+    fPropCVOutType{jbox::custom_property("prop_cv_out_%d_type", iIndex)}
+  {}
 
   CVOutSocket fCVOutSocket;
   ECVOutTypeJBoxProperty fPropCVOutType;
@@ -141,10 +145,7 @@ public:
   //CVInTestDataSteps fCVIn1;
 //  CVInTestDataFullSweep fCVIn1;
 //  CVInTestData4Steps fCVIn1;
-  CVOut fCVOut1;
-  CVOut fCVOut2;
-  CVOut fCVOut3;
-  CVOut fCVOut4;
+  CVOut *fCVOut[MAX_CV_OUT];
 
   CVOutSocket fCVOutValue1;
   CVOutSocket fCVOutMinValue1;
@@ -168,10 +169,7 @@ public:
   BooleanJBoxProperty fPropMidiOn;
 
   Int32JBoxProperty fPropArrayStart;
-  Int32JBoxProperty **fPropArray;
-
-private:
-  void initPropArray();
+  Int32JBoxProperty *fPropArray[MAX_ARRAY_SIZE];
 };
 
 

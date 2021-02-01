@@ -26,7 +26,7 @@ else()
 endif()
 
 set(RE_COMMON_GIT_REPO "https://github.com/pongasoft/re-common" CACHE STRING "re-common git repository url")
-set(RE_COMMON_GIT_TAG "v2.0.0" CACHE STRING "re-common git tag")
+set(RE_COMMON_GIT_TAG "v3.0.0" CACHE STRING "re-common git tag")
 
 FetchContent_Declare(re-common
       GIT_REPOSITORY    ${RE_COMMON_GIT_REPO}

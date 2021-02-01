@@ -60,10 +60,9 @@ void DeviceState::handleDisconnect()
     fPendingUpdates.setPendingValue(i, 0);
   }
 
-  fMotherboard.fCVOut1.fCVOutSocket.storeValueToMotherboardOnUpdate(0);
-  fMotherboard.fCVOut2.fCVOutSocket.storeValueToMotherboardOnUpdate(0);
-  fMotherboard.fCVOut3.fCVOutSocket.storeValueToMotherboardOnUpdate(0);
-  fMotherboard.fCVOut4.fCVOutSocket.storeValueToMotherboardOnUpdate(0);
+  for(int i = 0; i < MAX_CV_OUT; i++)
+    fMotherboard.fCVOut[i]->fCVOutSocket.storeValueToMotherboardOnUpdate(0);
+
   storePropCVIn1Value(MAX_UNREACHABLE_CV_VALUE);
 
   fLastCVIn1Display = 0;
@@ -87,10 +86,8 @@ bool DeviceState::afterMotherboardUpdate(bool motherboardStateChanged, DeviceSta
   }
 
   // handle potential change with cv out
-  motherboardStateChanged |= handleCVOutChange(previousMotherboard.fCVOut1, fMotherboard.fCVOut1);
-  motherboardStateChanged |= handleCVOutChange(previousMotherboard.fCVOut2, fMotherboard.fCVOut1);
-  motherboardStateChanged |= handleCVOutChange(previousMotherboard.fCVOut3, fMotherboard.fCVOut1);
-  motherboardStateChanged |= handleCVOutChange(previousMotherboard.fCVOut4, fMotherboard.fCVOut1);
+  for(int i = 0; i < MAX_CV_OUT; i++)
+    motherboardStateChanged |= handleCVOutChange(*previousMotherboard.fCVOut[i], *fMotherboard.fCVOut[i]);
 
   // recomputing the window no matter what when pause mode changes
   if(previousState.isPaused() != isPaused())
