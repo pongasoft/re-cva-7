@@ -96,6 +96,7 @@ Release notes
 * Upgraded to use RE SDK 4.2.0 (fix for filmstrip images not being multiple of 5)
 * Builds properly on Apple chipset
 * Fixed old code taken from a wip branch (display was broken)
+* Use re-common 3.0.0 (simplify property creation with mini string library / printf)
 
 #### 1.0.0 - 2016/11/30
 

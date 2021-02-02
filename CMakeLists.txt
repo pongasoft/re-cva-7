@@ -40,7 +40,7 @@ include("${RE_CMAKE_ROOT_DIR}/sdk.cmake")
 
 # Including re-common
 set(RE_COMMON_ROOT_DIR "")
-#set(RE_COMMON_ROOT_DIR "../../pongasoft/re-common")
+#set(RE_COMMON_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}/../../pongasoft/re-common")
 include(cmake/re-common.cmake)
 
 # Defining where the sources of the plugin live
