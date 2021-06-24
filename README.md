@@ -93,10 +93,14 @@ Release notes
 #### master (unreleased)
 
 * Upgraded to use [re-cmake](https://github.com/pongasoft/re-cmake) (removed all unnecessary files  and added CMake build files) 
-* Upgraded to use RE SDK 4.2.0 (fix for filmstrip images not being multiple of 5)
+* Upgraded to use RE SDK 4.2.0
 * Builds properly on Apple chipset
 * Fixed old code taken from a wip branch (display was broken)
 * Use re-common 3.0.0 (simplify property creation with mini string library / printf)
+
+#### 1.0.1 - 2021/06/23
+
+* Fixed image sizes to work in Recon and future versions of Reason (fix for filmstrip images not being multiple of 5)
 
 #### 1.0.0 - 2016/11/30
 
