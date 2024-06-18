@@ -15,6 +15,7 @@ product_id = "com.pongasoft.CVA7"
 manufacturer = "pongasoft"
 version_number = "1.0.0f19"
 device_type = "helper"
+device_categories = {"CV Meter"}
 supports_patches = false
 accepts_notes = false
 auto_create_track = false
