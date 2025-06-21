@@ -92,11 +92,11 @@ Release notes
 
 #### master (unreleased)
 
-* Upgraded to use [re-cmake](https://github.com/pongasoft/re-cmake) (removed all unnecessary files  and added CMake build files) 
-* Upgraded to use RE SDK 4.2.0
+* Upgraded to use [re-cmake](https://github.com/pongasoft/re-cmake) (removed all unnecessary files and added CMake build files) 
+* Upgraded to use RE SDK 4.6.0
 * Builds properly on Apple chipset
 * Fixed old code taken from a wip branch (display was broken)
-* Use re-common 3.0.0 (simplify property creation with mini string library / printf)
+* Use re-common 3.1.2 (simplify property creation with mini string library / printf)
 
 #### 1.0.1 - 2021/06/23
 

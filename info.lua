@@ -1,4 +1,4 @@
-format_version = "1.0"
+format_version = "2.0"
 
 -- Note that changing this file requires a Reason/Recon restart
 
@@ -17,6 +17,7 @@ version_number = "1.0.0f19"
 device_type = "helper"
 device_categories = {"CV Meter"}
 supports_patches = false
+-- default_patch = "/Public/default.repatch"
 accepts_notes = false
 auto_create_track = false
 auto_create_note_lane = false

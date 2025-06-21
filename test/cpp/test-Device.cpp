@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2025 pongasoft
+ * Copyright (c) 2025 pongasoft
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -16,18 +16,23 @@
  * @author Yan Pujante
  */
 
-#include "JukeboxExports.h"
-#include "Device.h"
-#include <logging.h>
+#include <gtest/gtest.h>
+#include <Device.h>
+#include <re/mock/DeviceTesters.h>
+#include <re_cmake_build.h>
 
-CommonDevice *createDevice(const TJBox_Value iParams[], TJBox_UInt32 iCount)
+using namespace re::mock;
+
+/**
+ * The device has 2 mono out sockets but we still use the InstrumentTester and wire Out to Left and Aux to Right
+ * for simplicity of writing tests.
+ */
+
+// Device - SampleRate
+TEST(Device, SampleRate)
 {
-  DCHECK_F(iCount >= 1);
+  auto c = DeviceConfig<Device>::fromJBoxExport(RE_CMAKE_PROJECT_DIR);
+  auto tester = HelperTester<Device>(c);
 
-  TJBox_Float64 sampleRate = JBox_GetNumber(iParams[0]);
-  int sampleRateInt = static_cast<int>(sampleRate);
-
-  DLOG_F(INFO, "New instance with sample rate => %d", sampleRateInt);
-
-  return new Device(sampleRateInt);
+  tester.nextBatch();
 }

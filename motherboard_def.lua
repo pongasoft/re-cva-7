@@ -1,7 +1,7 @@
 format_version = "1.0"
 
 local maxArraySize = 256
-local maxArrayValue = math.pow(2, 16) -- bits 0-7 -> min (or avg), bits 8-15 -> max
+local maxArrayValue = 2 ^ 16 -- bits 0-7 -> min (or avg), bits 8-15 -> max
 local maxHistorySize = 117 -- max # of LCD pages (for highest sampling rate, 10s history at 192k)
 
 local propArrayStartTag = 2000
