@@ -24,6 +24,8 @@ CommonDevice *createDevice(const TJBox_Value iParams[], TJBox_UInt32 iCount)
 {
   DCHECK_F(iCount >= 1);
 
+  RE_LOGGING_INIT_FOR_RE("CVA7");
+
   TJBox_Float64 sampleRate = JBox_GetNumber(iParams[0]);
   int sampleRateInt = static_cast<int>(sampleRate);
 

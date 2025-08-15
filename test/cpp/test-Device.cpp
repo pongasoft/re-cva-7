@@ -28,9 +28,11 @@ using namespace re::mock;
  * for simplicity of writing tests.
  */
 
-// Device - SampleRate
-TEST(Device, SampleRate)
+// Device - Init
+TEST(Device, Init)
 {
+  RE_LOGGING_INIT_FOR_TEST("Device.Init");
+
   auto c = DeviceConfig<Device>::fromJBoxExport(RE_CMAKE_PROJECT_DIR);
   auto tester = HelperTester<Device>(c);
 

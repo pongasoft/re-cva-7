@@ -25,11 +25,6 @@ Device::Device(int iSampleRate): CommonDevice(),
                                  fCurrentDeviceState(iSampleRate)
 {
   DLOG_F(INFO, "Device()");
-
-#ifndef  __phdsp__
-  JBOX_TRACE("Local 45 XCode Mode!!!");
-#endif // !__phdsp__
-
   fCurrentDeviceState.fMotherboard.registerForUpdate(fJBoxPropertyManager);
 }
 
@@ -164,7 +159,7 @@ bool Device::storeCVIn1Value(Motherboard &motherboard, CVPoint const &cvIn1Point
 
 void Device::doInitDevice(TJBox_PropertyDiff const iPropertyDiffs[], TJBox_UInt32 iDiffCount)
 {
-  JBOX_TRACE("Initializing device...");
+  DLOG_F(INFO, "Initializing device...");
 
   // initialize properties
   fJBoxPropertyManager.initProperties();
@@ -178,5 +173,5 @@ void Device::doInitDevice(TJBox_PropertyDiff const iPropertyDiffs[], TJBox_UInt3
   // copy to previous state to initialize it too!
   fPreviousDeviceState.update(fCurrentDeviceState);
 
-  JBOX_TRACE("Init complete.");
+  DLOG_F(INFO, "Init complete.");
 }
