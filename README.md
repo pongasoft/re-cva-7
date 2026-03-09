@@ -1,3 +1,6 @@
+> [!Warning]
+> This project is now hosted on [Codeberg](https://codeberg.org/pongasoft/re-cva-7).
+
 CVA-7 - CV Analyzer for Reason
 ==============================
 
